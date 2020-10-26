@@ -7,6 +7,7 @@ import javax.swing.Box;
 import java.awt.*;
 //import javax.swing.*;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,21 +17,23 @@ import javax.swing.JTextArea;
 import java.awt.Container;
 import java.awt.Dimension;
 
+
 //try deleting  all these extra libraries
 
 public class gameDND{
     int playerhp;
+    int monhp;
     String playerweapon,playerPosition;
 
     JFrame window;
     Container contain;
-    JPanel titleName,mainTextPanel,choiceButtonPanel,playerPanel;
+    JPanel titleName,mainTextPanel,choiceButtonPanel,playerPanel,startButtonPanel;
     JLabel titleLabel,a;
     JLabel HPLabel, HP, weaponlabel, weaponName;
     JLabel subtitle;
     JButton startButton,choiceButton1,choiceButton2,choiceButton3,choiceButton4;
     JTextArea mainTextArea;
-    Font titleFont = new Font("Ariel",Font.BOLD,50);
+    Font titleFont = new Font("Ariel",Font.BOLD,80);
     Font subtitleFont = new Font("Ariel",Font.PLAIN,25);
 
     secondScreen screenOne = new secondScreen();
@@ -62,6 +65,10 @@ public class gameDND{
          subtitle.setText(
              "<html><center>A Fantasy RPG <br> Inspired By Critical Role</center></html>"
          );
+
+         startButtonPanel =new JPanel();
+         startButtonPanel.setBounds(300, 400, 200, 100);
+         startButtonPanel.setBackground(Color.BLACK);
          startButton = new JButton("Start");
          startButton.setBounds(400, 900, 100, 40);
          startButton.setBackground(Color.BLACK);
@@ -76,9 +83,13 @@ public class gameDND{
          titleName.setLayout(new BoxLayout(titleName, BoxLayout.Y_AXIS));
          titleLabel.setFont(subtitleFont);
          titleName.add(Box.createRigidArea(new Dimension(0,10)));
-         titleName.add(startButton);
          
-         
+         contain.add(startButtonPanel);
+         startButtonPanel.add(startButton);
+
+         window.add(new JLabel(new ImageIcon("dungeon.jpg")));
+         //paintIcon();
+         //ImageIcon img= new ImageIcon(this.getClass().getResource("")).getImage();
          
         
         
@@ -92,7 +103,7 @@ public class gameDND{
          startButton.setVisible(false);
         mainTextPanel = new JPanel();
         mainTextPanel.setBounds(100, 100, 600, 250);
-        mainTextPanel.setBackground(Color.CYAN);
+        mainTextPanel.setBackground(Color.BLACK);
         contain.add(mainTextPanel);
 
         mainTextArea = new JTextArea(
@@ -178,6 +189,7 @@ public class gameDND{
      
      public void playerSetup(){
          playerhp =20;
+         monhp=20;
          playerweapon ="Dagger";
          weaponName.setText(playerweapon);
          HP.setText(""+playerhp);
@@ -187,7 +199,7 @@ public class gameDND{
      public void startScreen(){
         playerPosition ="startScreen";
          mainTextArea.setText(
-        "You arrive at the great city of Emon. You are invited to meet the mayor of the city Lord Uriel");
+        "You arrive at the great city of Emon. You are invited \n meet the mayor of the city Lord Uriel");
         choiceButton1.setText("Visit Lord Uriel");
         choiceButton2.setText("");
         choiceButton3.setText("");
@@ -197,7 +209,7 @@ public class gameDND{
      public void mayorHouse(){
          playerPosition ="mayorHouse";
          mainTextArea.setText(
-        "Lord Uriel: \n Welcome Adventurer.\n I have a quest for you. \n Are you upto  it?");
+        "Lord Uriel: \n Welcome Adventurer. I have a quest for you. \n Are you upto  it?");
         choiceButton1.setText("Accept Quest");
         choiceButton2.setText("Decline Quest");
         choiceButton3.setText("");
@@ -225,8 +237,8 @@ public class gameDND{
     public void continueQuest(){
         playerPosition="continueQuest";
         mainTextArea.setText(
-        "Lord Uriel:You are to retrieve a precious artifact for me. \n 'The necklace of thousand moons' found only in \n Shademirk Bog." );
-        choiceButton1.setText("continue");
+        "Lord Uriel:You are to retrieve a precious artifact for me. \n 'The Necklace Of  The Thousand Moons' found only in the Shademirk Bog." );
+        choiceButton1.setText("Continue");
         choiceButton2.setText("");
         choiceButton3.setText("");
         choiceButton4.setText("");
@@ -234,16 +246,18 @@ public class gameDND{
     public void continue1Quest(){
        playerPosition="continue1Quest";
        mainTextArea.setText(
-       "Lord Uriel:You will face many challenges but I'm sure you will \nemerge successful. \nSafe travel's adventurer!" );
-       choiceButton1.setText("Travel to Shademirk Bog");
+       "Lord Uriel:You will face many challenges but I'm sure you will emerge successful. \nSafe travel's adventurer!" );
+       choiceButton1.setText("Go to Shademirk Bog");
        choiceButton2.setText("");
        choiceButton3.setText("");
        choiceButton4.setText("");
     }
     public void continue2Quest(){
        playerPosition="continue2Quest";
+       playerhp =20;
+       monhp=20;
        mainTextArea.setText(
-       "You arrive at Shademirk Bog.\nThe road diverges in front of you. \nWhat do you do?" );
+       "You arrive at Shademirk Bog.\n The road diverges in front of you. \n What do you do?" );
        choiceButton1.setText("Go Left");
        choiceButton2.setText("Go Right");
        choiceButton3.setText("");
@@ -253,13 +267,16 @@ public class gameDND{
        playerPosition="leftQuest";
        mainTextArea.setText(
        "You found a healing potion. \nWhat do you do?" );
+       playerhp=playerhp+20;
+       HP.setText(""+playerhp);
        choiceButton1.setText("Drink potion and Go");
        choiceButton2.setText("Run away");
        choiceButton3.setText("");
        choiceButton4.setText("");
     }
     public void DrinkQuest(){
-       playerPosition="DrinkQuest";
+       playerPosition="fight";
+       
        mainTextArea.setText(
        "Oh no! You encountered a Goblin. \nWhat do you do?" );
        choiceButton1.setText("Attack");
@@ -270,14 +287,14 @@ public class gameDND{
     public void RunQuest(){
        playerPosition="RunQuest";
        mainTextArea.setText(
-       "Lord Uriel: I thought you were braver. You ran away! \n                           QUEST FAILED!          ");
+       "Lord Uriel: I thought you were braver. You ran away! \n                   QUEST FAILED!          ");
        choiceButton1.setText("Try Again");
        choiceButton2.setText("");
        choiceButton3.setText("");
        choiceButton4.setText("");
     }
-    public void RightQuest(){
-       playerPosition="RightQuest";
+    public void RightQuest(){//ATTACKKK SEQUENCE NEEDED AFTRT THIS 
+       playerPosition="fight";
        mainTextArea.setText(
        "Oh no! You encountered a Goblin. \nWhat do you do?" );
        choiceButton1.setText("Attack");
@@ -289,7 +306,7 @@ public class gameDND{
     public void AttackQuest(){
        playerPosition="AttackQuest";
        mainTextArea.setText(
-       "The Goblin dropped the necklace of thousand moons." );
+       "The Goblin dropped 'The Neckalce Of The Thousand Moons'!." );
        choiceButton1.setText("Pick it up");
        choiceButton2.setText("Pick and search cave");
        choiceButton3.setText("");
@@ -321,6 +338,8 @@ public class gameDND{
      choiceButton2.setText("");
      choiceButton3.setText("");
      choiceButton4.setText("");
+     playerweapon ="GreatSword";  
+     weaponName.setText(playerweapon);
   }
     public void backQuest(){
        playerPosition="backQuest";
@@ -355,24 +374,85 @@ public class gameDND{
 
     }
 
-
-     // idhar se start adding methods
-     //dont forget to add playerposition to each method
-     //plis watch previous videos to get full context
-     // c1 matlab choicebutton 1
-     //c2 matlab choice button 2
-     //c3 matlbab choice button 3
-     //c4 matlab choice button 4
-
-     //your choice will read c1,c2,c3,c4
-     // playerposition will help jump from scene to scene
-
-     //isme you need to now add hp ka counter for attack sequences and healing potion wala thingy
-     //equip dagger kiya to playerweapon wala string badalna chahiye
+    public void fight()
+    {
+      playerPosition="fight";
+      mainTextArea.setText("Monster HP: "+monhp+"\n\n What do you do? ");
+      choiceButton1.setText("Attack!");
+       choiceButton2.setText("Run away");
+       choiceButton3.setText("");
+       choiceButton4.setText("");
+       
+    }
 
 
-     // bryan if you can figure how to separate these into separate classes then plis do
-     //nahi toh rehne do
+    public void playerAttack()
+    {
+       playerPosition="playerAttack";
+       
+       int playerd=0;
+
+       playerd=new java.util.Random().nextInt(6);
+
+
+       mainTextArea.setText("You attacked the Goblin and dealt"+ playerd+" damage ");
+
+       monhp=monhp - playerd;
+
+       choiceButton1.setText("Continue Attacking");
+       choiceButton2.setText("Run away");
+       choiceButton3.setText("");
+       choiceButton4.setText("");
+
+
+    }
+    public void monsterAttack()
+    {
+       playerPosition="mon";
+
+       int mond=0;
+       mond=new java.util.Random().nextInt(8);
+       mainTextArea.setText("The Goblin attacked! You recieve "+ mond+"  damage");
+       
+       playerhp=playerhp-mond;
+      HP.setText(""+playerhp);
+
+      choiceButton1.setText("Continue Attacking");
+       choiceButton2.setText("Run away");
+       choiceButton3.setText("");
+       choiceButton4.setText("");
+
+
+    }
+
+    public void win()
+    {
+      playerPosition="DrinkQuest";
+      mainTextArea.setText(" You killed the Goblin!");
+      choiceButton1.setText("Continue");
+       choiceButton2.setText("Run away");
+       choiceButton3.setText("");
+       choiceButton4.setText("");
+    }
+
+    public void lose()
+    {
+      
+      playerPosition="restartGame";
+      mainTextArea.setText("You Died! \n \n <GAME OVER>");
+
+      choiceButton1.setText("Try Again");
+       choiceButton2.setText("Run away");
+       choiceButton3.setText("");
+       choiceButton4.setText("");
+    }
+
+
+   
+
+      
+    
+     
      public class secondScreen implements ActionListener {
     
         public void actionPerformed(ActionEvent event){
@@ -398,7 +478,7 @@ public class gameDND{
                  switch(yourChoice){
                      case "c1": acceptQuest(); break;
                      case "c2": declineQuest(); break;
-                     case "c3": break;
+                     case "c3": playerAttack() ;break;
                      case "c4": break;
                  }
                  break;
@@ -469,7 +549,7 @@ public class gameDND{
                  break;
                 case "RightQuest":
                  switch(yourChoice){
-                    case "c1": AttackQuest(); break;
+                    case "c1": RightQuest(); break;
                     case "c2": RunQuest(); break;
                     case "c3": break;
                     case "c4": break;
@@ -522,6 +602,57 @@ public class gameDND{
                     case "c3": break;
                     case "c4": break;
                  }
+                 break;
+                 case "fight":
+                 switch(yourChoice)
+                 {
+                    case "c1" : playerAttack(); break;
+                    case "c2" : break;
+
+                 }
+                 break;
+                 case "playerAttack" :
+                 
+                    switch(yourChoice)
+                   { 
+                      case "c1" : 
+                      if(monhp<1)
+                      {
+                         win();
+                      }
+                      else
+                      {
+                        monsterAttack();
+
+                      }
+                      break;
+
+                    }
+                    break;
+                   
+
+
+                    case "mon" :
+
+                    switch(yourChoice)
+                    {
+                       case "c1": 
+                       if(playerhp<1)
+                       {
+                          lose();
+                       }
+                       else
+                       {
+                        fight(); 
+                       }
+                       
+                    }
+                    break;
+
+                 
+
+
+                 
 
 
 
@@ -532,5 +663,3 @@ public class gameDND{
     
    
  }
-
- 
