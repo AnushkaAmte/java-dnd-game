@@ -18,7 +18,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 
 
-//try deleting  all these extra libraries
+
 
 public class gameDND{
     int playerhp;
@@ -31,7 +31,7 @@ public class gameDND{
     JLabel titleLabel,a;
     JLabel HPLabel, HP, weaponlabel, weaponName;
     JLabel subtitle;
-    JButton startButton,choiceButton1,choiceButton2,choiceButton3,choiceButton4;
+    JButton startButton,choiceButton1,choiceButton2,choiceButton3;
     JTextArea mainTextArea;
     Font titleFont = new Font("Ariel",Font.BOLD,80);
     Font subtitleFont = new Font("Ariel",Font.PLAIN,25);
@@ -56,7 +56,7 @@ public class gameDND{
          titleName = new JPanel();
          titleName.setBounds(250, 100, 600, 300);
          titleName.setBackground(Color.BLACK);
-         titleLabel = new JLabel("<html><center>Dungeons & Dragons</center></html>");
+         titleLabel = new JLabel("<html><center>The Howling Bog</center></html>");
          titleLabel.setForeground(Color.WHITE);
          titleLabel.setFont(titleFont);
          titleName.add(titleLabel);
@@ -96,8 +96,7 @@ public class gameDND{
          window.setVisible(true);
 
      }
-     // to here kuch change mat karna
-     //this is done
+     
      public void createGameScreen(){
          titleName.setVisible(false);
          startButton.setVisible(false);
@@ -119,7 +118,7 @@ public class gameDND{
         choiceButtonPanel = new JPanel();
         choiceButtonPanel.setBounds(250, 350, 300, 150);
         choiceButtonPanel.setBackground(Color.GREEN);
-        choiceButtonPanel.setLayout(new GridLayout(4,1));
+        choiceButtonPanel.setLayout(new GridLayout(3,1));
         contain.add(choiceButtonPanel);
 
         choiceButton1= new JButton("Choice 1");
@@ -146,13 +145,13 @@ public class gameDND{
         choiceButton3.addActionListener(pHandler);
         choiceButtonPanel.add(choiceButton3);
 
-        choiceButton4= new JButton("Choice 4");
+        /* choiceButton4= new JButton("Choice 4");
         choiceButton4.setBackground(Color.BLACK);
         choiceButton4.setForeground(Color.WHITE);
         choiceButton4.setFont(subtitleFont);
         choiceButton4.setActionCommand("c4");
         choiceButton4.addActionListener(pHandler);
-        choiceButtonPanel.add(choiceButton4);
+        choiceButtonPanel.add(choiceButton4); */
 
         playerPanel = new JPanel();
         playerPanel.setBounds(100,15,600,50);
@@ -203,7 +202,7 @@ public class gameDND{
         choiceButton1.setText("Visit Lord Uriel");
         choiceButton2.setText("");
         choiceButton3.setText("");
-        choiceButton4.setText(""); 
+        //choiceButton4.setText(""); 
      }
 
      public void mayorHouse(){
@@ -213,7 +212,7 @@ public class gameDND{
         choiceButton1.setText("Accept Quest");
         choiceButton2.setText("Decline Quest");
         choiceButton3.setText("");
-        choiceButton4.setText("");
+        //choiceButton4.setText("");
      }
 
      public void acceptQuest(){
@@ -222,7 +221,7 @@ public class gameDND{
         choiceButton1.setText("Continue");
         choiceButton2.setText("");
         choiceButton3.setText("");
-       choiceButton4.setText("");
+       //choiceButton4.setText("");
 
     }
     public void declineQuest(){
@@ -232,7 +231,7 @@ public class gameDND{
         choiceButton1.setText("Accept");
         choiceButton2.setText("");
         choiceButton3.setText("");
-        choiceButton4.setText("");
+        //choiceButton4.setText("");
     }
     public void continueQuest(){
         playerPosition="continueQuest";
@@ -241,7 +240,7 @@ public class gameDND{
         choiceButton1.setText("Continue");
         choiceButton2.setText("");
         choiceButton3.setText("");
-        choiceButton4.setText("");
+        //choiceButton4.setText("");
     }
     public void continue1Quest(){
        playerPosition="continue1Quest";
@@ -250,7 +249,7 @@ public class gameDND{
        choiceButton1.setText("Go to Shademirk Bog");
        choiceButton2.setText("");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+       //choiceButton4.setText("");
     }
     public void continue2Quest(){
        playerPosition="continue2Quest";
@@ -261,7 +260,7 @@ public class gameDND{
        choiceButton1.setText("Go Left");
        choiceButton2.setText("Go Right");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+       //choiceButton4.setText("");
     }
     public void leftQuest(){
        playerPosition="leftQuest";
@@ -272,7 +271,7 @@ public class gameDND{
        choiceButton1.setText("Drink potion and Go");
        choiceButton2.setText("Run away");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+       //choiceButton4.setText("");
     }
     public void DrinkQuest(){
        playerPosition="fight";
@@ -282,7 +281,7 @@ public class gameDND{
        choiceButton1.setText("Attack");
        choiceButton2.setText("Run away");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+       //choiceButton4.setText("");
     }
     public void RunQuest(){
        playerPosition="RunQuest";
@@ -291,7 +290,7 @@ public class gameDND{
        choiceButton1.setText("Try Again");
        choiceButton2.setText("");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
     }
     public void RightQuest(){//ATTACKKK SEQUENCE NEEDED AFTRT THIS 
        playerPosition="fight";
@@ -300,7 +299,7 @@ public class gameDND{
        choiceButton1.setText("Attack");
        choiceButton2.setText("Run away");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
     }
    
     public void AttackQuest(){
@@ -310,7 +309,7 @@ public class gameDND{
        choiceButton1.setText("Pick it up");
        choiceButton2.setText("Pick and search cave");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
     }
     public void PickQuest(){
        playerPosition="PickQuest";
@@ -319,7 +318,7 @@ public class gameDND{
        choiceButton1.setText("Go back to Emon");
        choiceButton2.setText("");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
     }
     public void searchQuest(){
        playerPosition="searchQuest";
@@ -328,7 +327,7 @@ public class gameDND{
        choiceButton1.setText("Equip");
        choiceButton2.setText("");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
     }
     public void equipQuest(){
      playerPosition="equipQuest";
@@ -337,18 +336,18 @@ public class gameDND{
      choiceButton1.setText("Go back to Emon");
      choiceButton2.setText("");
      choiceButton3.setText("");
-     choiceButton4.setText("");
+    // choiceButton4.setText("");
      playerweapon ="GreatSword";  
      weaponName.setText(playerweapon);
   }
     public void backQuest(){
        playerPosition="backQuest";
        mainTextArea.setText(
-       "Lord Uriel: Welcome back adventurer! \nI see you found the necklace. I knew I could trust you. \nExcellent job!" );
+       "Lord Uriel: Welcome back adventurer! \nI see you found the necklace.I knew I could trust you. \nExcellent job!" );
        choiceButton1.setText("End Game");
        choiceButton2.setText("");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
     }
     public void restartGame(){
         playerPosition="restartGame";
@@ -357,7 +356,7 @@ public class gameDND{
        choiceButton1.setText("Yes");
        choiceButton2.setText("");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
 
     }
 
@@ -369,7 +368,7 @@ public class gameDND{
        choiceButton1.setEnabled(false);
        choiceButton2.setEnabled(false);
        choiceButton3.setEnabled(false);
-       choiceButton4.setEnabled(false);
+      // choiceButton4.setEnabled(false);
 
 
     }
@@ -381,7 +380,7 @@ public class gameDND{
       choiceButton1.setText("Attack!");
        choiceButton2.setText("Run away");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
        
     }
 
@@ -392,17 +391,17 @@ public class gameDND{
        
        int playerd=0;
 
-       playerd=new java.util.Random().nextInt(6);
+       playerd=new java.util.Random().nextInt(8);
 
 
-       mainTextArea.setText("You attacked the Goblin and dealt"+ playerd+" damage ");
+       mainTextArea.setText("You attacked the Goblin and dealt "+ playerd+" damage ");
 
        monhp=monhp - playerd;
 
        choiceButton1.setText("Continue Attacking");
        choiceButton2.setText("Run away");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
 
 
     }
@@ -411,7 +410,7 @@ public class gameDND{
        playerPosition="mon";
 
        int mond=0;
-       mond=new java.util.Random().nextInt(8);
+       mond=new java.util.Random().nextInt(6);
        mainTextArea.setText("The Goblin attacked! You recieve "+ mond+"  damage");
        
        playerhp=playerhp-mond;
@@ -420,7 +419,7 @@ public class gameDND{
       choiceButton1.setText("Continue Attacking");
        choiceButton2.setText("Run away");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
 
 
     }
@@ -432,7 +431,7 @@ public class gameDND{
       choiceButton1.setText("Continue");
        choiceButton2.setText("Run away");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
     }
 
     public void lose()
@@ -444,16 +443,9 @@ public class gameDND{
       choiceButton1.setText("Try Again");
        choiceButton2.setText("Run away");
        choiceButton3.setText("");
-       choiceButton4.setText("");
+      // choiceButton4.setText("");
     }
-
-
-   
-
-      
-    
-     
-     public class secondScreen implements ActionListener {
+   public class secondScreen implements ActionListener {
     
         public void actionPerformed(ActionEvent event){
             createGameScreen();
@@ -471,7 +463,7 @@ public class gameDND{
                         case "c1": mayorHouse(); break;
                         case "c2":  break;
                         case "c3": break;
-                        case "c4": break;   
+                      //  case "c4": break;   
                 }
                 break;
                 case "mayorHouse":
@@ -479,7 +471,7 @@ public class gameDND{
                      case "c1": acceptQuest(); break;
                      case "c2": declineQuest(); break;
                      case "c3": playerAttack() ;break;
-                     case "c4": break;
+                   //  case "c4": break;
                  }
                  break;
                  case "declineQuest":
@@ -487,7 +479,7 @@ public class gameDND{
                     case "c1": acceptQuest(); break;
                     case "c2": break;
                     case "c3": break;
-                    case "c4": break;
+                   // case "c4": break;
                  }
                  break;
                  case "acceptQuest":
@@ -495,7 +487,7 @@ public class gameDND{
                     case "c1": continueQuest(); break;
                     case "c2": break;
                     case "c3": break;
-                    case "c4": break;
+                  //  case "c4": break;
 
                 }
                 break;
@@ -504,7 +496,7 @@ public class gameDND{
                     case "c1": continue1Quest(); break;
                     case "c2": break;
                     case "c3": break;
-                    case "c4": break;
+                  //  case "c4": break;
                  }
                  break;
                 case "continue1Quest":
@@ -512,7 +504,7 @@ public class gameDND{
                     case "c1": continue2Quest(); break;
                     case "c2": break;
                     case "c3": break;
-                    case "c4": break;
+                   // case "c4": break;
                  }
                  break;
                 case "continue2Quest":
@@ -520,7 +512,7 @@ public class gameDND{
                     case "c1": leftQuest(); break;
                     case "c2": RightQuest(); break;
                     case "c3": break;
-                    case "c4": break;
+                  //  case "c4": break;
                  }
                  break;
                 case "leftQuest":
@@ -528,7 +520,7 @@ public class gameDND{
                     case "c1": DrinkQuest(); break;
                     case "c2": RunQuest(); break;
                     case "c3": break;
-                    case "c4": break;
+                  //  case "c4": break;
                  }
                  break;
                 case "DrinkQuest":
@@ -536,7 +528,7 @@ public class gameDND{
                     case "c1": AttackQuest(); break;
                     case "c2": RunQuest(); break;
                     case "c3": break;
-                    case "c4": break;
+                  //  case "c4": break;
                  }
                  break;
                  case "RunQuest":
@@ -544,7 +536,7 @@ public class gameDND{
                     case "c1": restartGame(); break;
                     case "c2": break;
                     case "c3": break;
-                    case "c4": break;
+                   // case "c4": break;
                  }
                  break;
                 case "RightQuest":
@@ -552,7 +544,7 @@ public class gameDND{
                     case "c1": RightQuest(); break;
                     case "c2": RunQuest(); break;
                     case "c3": break;
-                    case "c4": break;
+                  //  case "c4": break;
                  }
                  break;
                 case "AttackQuest":
@@ -560,7 +552,7 @@ public class gameDND{
                     case "c1": PickQuest(); break;
                     case "c2": searchQuest(); break;
                     case "c3": break;
-                    case "c4": break;
+                  //  case "c4": break;
                  }
                  break;
                  case "PickQuest":
@@ -568,7 +560,7 @@ public class gameDND{
                     case "c1": backQuest(); break;
                     case "c2": searchQuest(); break;
                     case "c3": break;
-                    case "c4": break;
+                  //  case "c4": break;
                  }
                  break;
                  case "searchQuest":
@@ -576,7 +568,7 @@ public class gameDND{
                     case "c1": equipQuest(); break;
                     case "c2": backQuest(); break;
                     case "c3": break;
-                    case "c4": break;
+                   // case "c4": break;
                  }
                  break;
                  case "equipQuest":
@@ -584,7 +576,7 @@ public class gameDND{
                     case "c1": backQuest(); break;
                     case "c2": break;
                     case "c3": break;
-                    case "c4": break;
+                  //  case "c4": break;
                  }
                  break;
                  case "restartGame":
@@ -592,7 +584,7 @@ public class gameDND{
                     case "c1": continue2Quest(); break;
                     case "c2": break;
                     case "c3": break;
-                    case "c4": break;
+                  //  case "c4": break;
                  }
                  break;
                  case "backQuest":
@@ -600,7 +592,7 @@ public class gameDND{
                     case "c1": endGame(); break;
                     case "c2": break;
                     case "c3": break;
-                    case "c4": break;
+                   // case "c4": break;
                  }
                  break;
                  case "fight":
@@ -648,13 +640,6 @@ public class gameDND{
                        
                     }
                     break;
-
-                 
-
-
-                 
-
-
 
             }
 
