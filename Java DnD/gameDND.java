@@ -183,8 +183,7 @@ public class gameDND{
         
 
      }
-     // ye wala createGameScreen bhi thik hai
-     //no need to change this
+     
      
      public void playerSetup(){
          playerhp =20;
